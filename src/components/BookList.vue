@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1> {title} </h1>
+      <h1> {{title}} </h1>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ data () {
 
 <style>
 
-.h1, .h2 {
+h1, h2 {
     font-weight: normal;
 }
 
