@@ -1,42 +1,43 @@
 <template>
   <div>
-      <h1>{{title}}</h1>
-      <ul>
-          <li v-for="book in books" v-bind:key="book">{{book.title}} : {{book.author}}</li>
-      </ul>
+    <h1>{{ title }}</h1>
+    <ul>
+      <book-item v-for="book in books" :book="book">
+      </book-item>
+    </ul>
   </div>
 </template>
 
 <script>
-export default {
-name: 'BookList',
-data() {
-        return {
-        title: 'All Books',
-        books: [
-            {title: 'Self-Reliance', author: 'Ralph Waldo Emerson'},
-            {title: 'American Gods', author: 'Neil Gaiman'},
-            {title: 'Amusing Ourselves to Death', author: 'Neil Postman'},
-        ]
-        }
-    }
-}
+import BookItem from './BookItem';
 
+export default {
+  name: "BookList",
+  data() {
+    return {
+      title: "All Books",
+      books: [
+        { title: "Self-Reliance", author: "Ralph Waldo Emerson" },
+        { title: "American Gods", author: "Neil Gaiman" },
+        { title: "Amusing Ourselves to Death", author: "Neil Postman" },
+      ],
+    };
+  },
+  components: {
+    BookItem
+  },
+  props: ['book']
+};
 </script>
 
 <style>
-
-h1, h2 {
-    font-weight: normal;
+h1,
+h2 {
+  font-weight: normal;
 }
+
 ul {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
-li {
-    display: block;
-    margin: 0 10px;
-}
-
-
 </style>
